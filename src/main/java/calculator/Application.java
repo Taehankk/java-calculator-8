@@ -13,8 +13,7 @@ public class Application {
     	
     	String number_input = splitCustomSeperator();
     	
-    	System.out.println(separator);
-    	System.out.println(number_input);
+    	System.out.println(plusCalculator(number_input));
     }
     
     public static String splitCustomSeperator() throws Exception {
@@ -34,5 +33,22 @@ public class Application {
     	}
     	
     	return input;
+    }
+    
+    public static int plusCalculator(String input) {
+    	int result = 0;
+    	
+    	try {
+    		String regex = "[" + String.join("|", separator) + "]";
+			String[] number = input.split(regex);
+    		
+			for(int i = 0; i < number.length; i++) {
+				result += Integer.parseInt(number[i]);
+			}
+    	} catch(Exception error) {
+    		throw new IllegalArgumentException();
+    	}
+    	
+    	return result;
     }
 }
