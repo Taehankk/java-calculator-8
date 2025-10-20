@@ -1,6 +1,6 @@
 package calculator;
 
-import java.io.*;
+import camp.nextstep.edu.missionutils.Console;
 import java.util.*;
 
 public class Application {
@@ -16,10 +16,8 @@ public class Application {
     	System.out.println(plusCalculator(number_input));
     }
     
-    public static String splitCustomSeperator() throws Exception {
-    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    	
-    	String input = br.readLine();
+    public static String splitCustomSeperator() throws Exception { 	
+    	String input = Console.readLine();
     	
     	String[] split_input;
     	if(input.startsWith("//") && input.contains("\\n")) {
